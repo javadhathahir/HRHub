@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dashboard',
     'attendance_tracking',
     'user_profile',
+    'payroll',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Configure message storage
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 ROOT_URLCONF = 'HRHub.urls'
 

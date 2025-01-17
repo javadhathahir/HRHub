@@ -76,4 +76,20 @@ def footer(request):
     
     return render(request, 'footer.html')
 
+'''@login_required
+def employee_delete(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)  # Fetch the employee object or return 404 if not found
+    if request.method == "POST":
+        employee.delete()  # Delete the employee record
+        return redirect('dashboard:dash_view')  # Redirect to employee list after deletion
+    return render(request, 'employee_management/employee_confirm_delete.html', {'employee': employee})  # Render the confirmation modal'''
+
+@login_required
+def employee_data(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)
+    return render(request, 'dashboard/employee_detail.html', {'employee': employee})
+
+
+
+
 

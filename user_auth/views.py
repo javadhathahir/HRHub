@@ -37,32 +37,6 @@ def user_logout(request):
     return redirect('user_auth:login')  # Redirect to login page
 
 
-'''def register(request):
-
-    if request.user.is_authenticated:
-        return redirect('dashboard:dash_view')  # Redirect to the dashboard if the user is already logged in
-    
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
-        
-        # Check if the username or email already exists
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'Username already exists.')
-            return render(request, 'user_auth/register.html')
-        
-        if User.objects.filter(email=email).exists():
-            messages.error(request, 'Email already in use.')
-            return render(request, 'user_auth/register.html')
-
-        # Create the user
-        user = User.objects.create_user(username=username, password=password, email=email)
-        messages.success(request, 'Your account has been created successfully! You can now log in.')
-        return redirect('login')  # Redirect to the login page after successful registration
-
-    return render(request, 'user_auth/register.html')'''
-
 def register(request):
     if request.user.is_authenticated:
         return redirect('dashboard:dash_view')  # Redirect to the dashboard if the user is already logged in

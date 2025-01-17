@@ -98,17 +98,15 @@
                     <tbody>
                         {% for employee in employees %}
                         <tr>
-                            
-                            <td>{{ forloop.counter }}</td> <!-- Django provides a loop counter -->
+                             <td>{{ forloop.counter }}</td> <!-- Django provides a loop counter -->
                             <td>{{ employee.first_name }}</td>
                             <td>{{ employee.department }}</td>
                             <td>{{ employee.role }}</td>
                             <td>
                             <!--<button class="btn btn-sm btn-primary">Edit</button>-->
-                            <!-- Delete Button with Modal Trigger -->
-                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-employee-id="{{ employee.pk }}" data-employee-name="{{ employee.first_name }} {{ employee.last_name }}">
-                                Delete
-                            </button>
+                            <a href="{% url 'dashboard:employee_data' employee.pk %}" class="btn btn-sm btn-info">View</a>
+                            
+                           
 
                             </td>
                         </tr>
@@ -117,18 +115,22 @@
                             <td colspan="5" class="text-center">No employees found</td>
                         </tr>
                         {% endfor %}
-                       
                     </tbody>
                 </table>
             </main>
-            <!-- Include Delete Confirmation Modal -->
-            {% include 'employee_management/employee_confirm_delete.html' %}
             {% endblock %}
         </div>
     </div>
 
-  
     {% include 'footer.html' %}
     
 </body>
+
+<!--<script>
+    // JavaScript function for confirmation before delete
+    function confirmDelete() {
+        return window.confirm("Are you sure you want to delete this employee?");
+    }
+</script>-->
+
 </html>

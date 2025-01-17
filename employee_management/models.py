@@ -44,6 +44,7 @@ class Employee(models.Model):
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    basic_salary=models.IntegerField(default=50000)
 
     def save(self, *args, **kwargs):
         if not self.employee_id:  # Generate employee_id only if it's not set
